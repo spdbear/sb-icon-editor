@@ -1,6 +1,7 @@
-# [Bear Icon Generator](https://spdbear.github.io/sb-icon-editor/index.html)
+# Bear Icon Generator
 
-A tool to create a bear icon based on the golden ratio.
+A tool to create a bear icon based on the golden ratio
+https://bear-icon-generator.netlify.com/
 
 ![demo](https://user-images.githubusercontent.com/16793732/74528091-b5983400-4f6a-11ea-9479-ba6253f5b222.gif)
 
