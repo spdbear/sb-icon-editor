@@ -2,43 +2,16 @@
   <div id="app">
     <!-- <HelloWorld /> -->
     <h1>Bear Icon Generator</h1>
-    <svg
-      id="bearsvg"
-      viewBox="0 0 500 500"
-      :width="bgsize"
-      :height="bgsize"
-      :style="bgstyle"
-    >
-      <!-- <line :x1="x1" y1="100" x2="200" y2="200" stroke="black" /> -->
+    <svg id="bearsvg" viewBox="0 0 500 500" :width="bgsize" :height="bgsize">
+      <rect width="100%" height="100%" :fill="bgcolor" :fill-opacity="bgopacity" />
       <circle cx="250" :cy="cy" :r="r0" :fill="color" :stroke-width="stroke" />
-      <circle
-        cx="250"
-        :cy="cy"
-        :r="rad"
-        :stroke="color"
-        fill="none"
-        :stroke-width="stroke"
-      />
-      <circle
-        :cx="cx2"
-        :cy="cy2"
-        :r="r2"
-        :stroke="color"
-        fill="none"
-        :stroke-width="stroke"
-      />
-      <circle
-        :cx="cx3"
-        :cy="cy2"
-        :r="r3"
-        :stroke="color"
-        fill="none"
-        :stroke-width="stroke"
-      />
+      <circle cx="250" :cy="cy" :r="rad" :stroke="color" fill="none" :stroke-width="stroke" />
+      <circle :cx="cx2" :cy="cy2" :r="r2" :stroke="color" fill="none" :stroke-width="stroke" />
+      <circle :cx="cx3" :cy="cy2" :r="r3" :stroke="color" fill="none" :stroke-width="stroke" />
       <circle
         cx="250"
         cy="250"
-        :r="250"
+        r="250"
         fill="none"
         stroke="#000"
         :stroke-width="previewCircleStroke"
@@ -73,9 +46,11 @@
       bgcolor: {{ bgcolor }}
       <input type="color" name="head" v-model="bgcolor" />
     </p>
+
     <p>
       <button v-on:click="swapColor">Swap Color</button>
-      Preview circle: <input type="checkbox" id="checkbox" v-model="checked" />
+      Preview circle:
+      <input type="checkbox" id="checkbox" v-model="checked" />
     </p>
     <p>
       Output Size:
@@ -99,6 +74,7 @@ export default {
       stroke: 36,
       theta: 45,
       y_cor: 20,
+      bgopacity: 1.0,
       color: "#35485e",
       bgcolor: "#41b883",
       checked: false
@@ -125,9 +101,6 @@ export default {
     },
     cy2: function() {
       return this.cy - this.rad * Math.cos((this.theta * Math.PI) / 180);
-    },
-    bgstyle: function() {
-      return `background: ${this.bgcolor}`;
     },
     previewCircleStroke: function() {
       const stroke = this.checked ? 1 : 0;
